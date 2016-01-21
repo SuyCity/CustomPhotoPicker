@@ -89,12 +89,14 @@
     
     id dict = [[YCPhotoPickerManager sharedManager] groups];
     ALAssetsGroup *group = [dict allObjects][indexPath.row];
-    NSString *name = [group valueForProperty:ALAssetsGroupPropertyName];
-    @autoreleasepool {
-        YCAlbumInfosController *albumInfos = [[YCAlbumInfosController alloc] init];
-        albumInfos.title = name;
-        albumInfos.groups = group;
-        [self.navigationController pushViewController:albumInfos animated:NO];
+    if ([group numberOfAssets]){
+        NSString *name = [group valueForProperty:ALAssetsGroupPropertyName];
+        @autoreleasepool {
+            YCAlbumInfosController *albumInfos = [[YCAlbumInfosController alloc] init];
+            albumInfos.title = name;
+            albumInfos.groups = group;
+            [self.navigationController pushViewController:albumInfos animated:NO];
+        }
     }
 }
 - (void)didReceiveMemoryWarning {
