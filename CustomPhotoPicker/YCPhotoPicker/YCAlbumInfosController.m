@@ -42,6 +42,9 @@
     [self.collectionView registerClass:[UICollectionViewCell class]
             forCellWithReuseIdentifier:@"UICollectionViewCell"];
     
+    UIBarButtonItem *rightBtn=[[UIBarButtonItem alloc]initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnEvent:)];
+    self.navigationItem.rightBarButtonItem=rightBtn;
+    
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -61,6 +64,9 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.isReloadData = NO;
+}
+#pragma mark - Event
+- (void)rightBtnEvent:(id)sender{
 }
 #pragma mark - UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

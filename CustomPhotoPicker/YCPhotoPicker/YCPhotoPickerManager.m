@@ -72,8 +72,38 @@
     return status == ALAuthorizationStatusNotDetermined || status
      == ALAuthorizationStatusAuthorized;
 }
-
-#pragma mark - 
+#pragma mark - Sender Photo
+- (void)dissmissViewController:(void(^)(NSArray *))resultBlock{
+    __block NSMutableArray *imageArray  = [NSMutableArray array];
+    [[self getSelectedAsstes] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj) {
+            [self.assetsLibrary assetForURL:[NSURL URLWithString:obj] resultBlock:^(ALAsset *result) {
+                NSMutableDictionary *dict=[NSMutableDictionary dictionary];
+                NSString *type = [result valueForProperty:ALAssetPropertyType] ;
+                NSString *location = [result valueForProperty:ALAssetPropertyLocation];
+                NSString *duration = [result valueForProperty:ALAssetPropertyDuration];
+                ALAssetRepresentation* representation = [result defaultRepresentation];
+                NSString* uit = [representation filename];
+                NSString *url = [[[result defaultRepresentation]url]description];
+                UIImage *image=[UIImage imageWithCGImage:result.aspectRatioThumbnail];
+                [dict setValue:image forKey:@"image"];
+                [dict setValue:location forKey:@"location"];
+                [dict setValue:duration forKey:@"duration"];
+                [dict setValue:type forKey:@"type"];
+                [dict setValue:url forKey:@"url"];
+                [dict setValue:uit forKey:@"uit"];
+                [imageArray addObject:dict];
+            } failureBlock:^(NSError *error) {
+                
+            }];
+        }
+        else{
+            if(resultBlock) resultBlock(imageArray);
+        }
+    }];
+    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma mark - Assets
 - (BOOL)addAssets:(ALAsset *)asset{
     if (!self.selectedAssets) {
         self.selectedAssets = [NSMutableArray array];

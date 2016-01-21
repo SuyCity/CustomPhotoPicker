@@ -14,12 +14,14 @@
 
 @property (nonatomic, assign) NSUInteger maxOption;
 @property (nonatomic, readonly, strong) NSDictionary *groups;
+@property (nonatomic, strong) UIViewController *parentViewController;
 
 + (instancetype)sharedManager;
 
 - (void)setGroupsWithAll:(void(^)(NSDictionary *,NSError *))resultBlock;
 - (void)setAssetWithUrl:(NSString *)url result:(void(^)(ALAsset *,NSError *))result;
 
+- (void)dissmissViewController:(void(^)(NSArray *))resultBlock;
 
 - (BOOL)addAssets:(ALAsset *)asset;
 - (void)removeAssets:(ALAsset *)asset;

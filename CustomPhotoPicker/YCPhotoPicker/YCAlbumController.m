@@ -22,8 +22,8 @@
     UINavigationBar *bar = [UINavigationBar appearance];
     //设置显示的颜色
     bar.barTintColor = [UIColor whiteColor];
-    UIBarButtonItem *rightBii=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnEvent:)];
-    self.navigationItem.rightBarButtonItem=rightBii;
+    UIBarButtonItem *rightBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnEvent:)];
+    self.navigationItem.rightBarButtonItem=rightBtn;
     
     // Do any additional setup after loading the view.
     UITableView *tableView = [[UITableView alloc] init];
@@ -45,6 +45,8 @@
     
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+    
+    [self gotoAlbumInfos:0];
 }
 #pragma mark - Event
 - (void)rightBtnEvent:(id)sender{
@@ -86,9 +88,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    [self gotoAlbumInfos:indexPath.row];
+}
+- (void)gotoAlbumInfos:(NSUInteger)index{
     id dict = [[YCPhotoPickerManager sharedManager] groups];
-    ALAssetsGroup *group = [dict allObjects][indexPath.row];
+    ALAssetsGroup *group = [dict allObjects][index];
     if ([group numberOfAssets]){
         NSString *name = [group valueForProperty:ALAssetsGroupPropertyName];
         @autoreleasepool {
