@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "YCPhotoPicker.h"
 
 @interface ViewController ()
 
@@ -18,7 +19,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
+- (IBAction)clickBtnEvent:(id)sender{
+    YCPhotoPickerController *photoPicker = [[YCPhotoPickerController alloc]init];
+    [self presentViewController:photoPicker animated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

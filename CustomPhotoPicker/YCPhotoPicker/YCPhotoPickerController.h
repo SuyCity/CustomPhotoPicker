@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface YCPhotoPickerController : UIViewController
-
+@property (nonatomic, assign) NSUInteger maxOption;
 @end
