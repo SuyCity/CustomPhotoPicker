@@ -20,8 +20,9 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)clickBtnEvent:(id)sender{
-    YCPhotoPickerController *photoPicker = [[YCPhotoPickerController alloc]init];
-    [self presentViewController:photoPicker animated:YES completion:nil];
+    [YCPhotoPickerController openPhotoPickerRootViewController:self maxOption:3 result:^(NSArray *infos) {
+        NSLog(@"--> %@",infos);
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

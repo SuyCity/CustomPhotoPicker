@@ -24,13 +24,22 @@
 
 @implementation YCPhotoPickerController
 @synthesize maxOption = _maxOption;
+
+#pragma mark - +
++ (void)openPhotoPickerRootViewController:(UIViewController *)rootController maxOption:(NSUInteger)maxOption result:(void(^)(NSArray *result))resultBlock{
+    YCPhotoPickerController *photoPicker = [[YCPhotoPickerController alloc] init];
+    photoPicker.maxOption = maxOption;
+    photoPicker.didSelectedPhotosBlock = resultBlock;
+    [rootController presentViewController:photoPicker animated:YES completion:nil];
+}
+#pragma mark - Set/Get
 - (void)setMaxOption:(NSUInteger)maxOption{
     if (_maxOption != maxOption) {
         _maxOption = maxOption;
         [[YCPhotoPickerManager sharedManager] setMaxOption:maxOption];
     }
 }
-
+#pragma mark - View Did Load
 - (void)viewDidLoad {
     [super viewDidLoad];
     [YCPhotoPickerManager sharedManager];
@@ -177,7 +186,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     [cell setBackgroundColor:[UIColor whiteColor]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    int count = [[[YCPhotoPickerManager sharedManager] getSelectedAsstes] count];
+    int count = (int)[[[YCPhotoPickerManager sharedManager] getSelectedAsstes] count];
     NSString *title = @"拍照";
     if (count) {
         title = [NSString stringWithFormat:@"发送%d张",count];
@@ -226,7 +235,8 @@
     
     __weak typeof(self) weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
-        [weakSelf dismissViewController];
+        if(weakSelf.didSelectedPhotosBlock)weakSelf.didSelectedPhotosBlock(@[param]);
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
     }];
     
 }
@@ -236,9 +246,11 @@
 }
 #pragma mark - Event
 - (void)dismissViewController{
+    [[YCPhotoPickerManager sharedManager] getResultBlock:^(NSArray *infos) {
+        if(self.didSelectedPhotosBlock)self.didSelectedPhotosBlock(infos);
+    }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 + (UIColor*)opaqueColorWithRGBBytes:(NSUInteger)hexConstant
 {
     CGFloat red = ((hexConstant >> 16) & 0xFF) / 255.0;

@@ -8,6 +8,8 @@
 
 #import "YCAlbumInfosController.h"
 #import "YCImageView.h"
+#import "YCPhotoPickerManager.h"
+#import "YCPhotoPickerController.h"
 
 
 @interface YCAlbumInfosController ()<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -67,6 +69,7 @@
 }
 #pragma mark - Event
 - (void)rightBtnEvent:(id)sender{
+    [(YCPhotoPickerController *)[[YCPhotoPickerManager sharedManager] parentViewController] dismissViewController];
 }
 #pragma mark - UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

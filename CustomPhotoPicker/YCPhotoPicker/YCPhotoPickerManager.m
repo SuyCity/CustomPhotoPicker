@@ -73,7 +73,7 @@
      == ALAuthorizationStatusAuthorized;
 }
 #pragma mark - Sender Photo
-- (void)dissmissViewController:(void(^)(NSArray *))resultBlock{
+- (void)getResultBlock:(void(^)(NSArray *))resultBlock{
     __block NSMutableArray *imageArray  = [NSMutableArray array];
     [[self getSelectedAsstes] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj) {
@@ -101,14 +101,14 @@
             if(resultBlock) resultBlock(imageArray);
         }
     }];
-    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - Assets
 - (BOOL)addAssets:(ALAsset *)asset{
     if (!self.selectedAssets) {
         self.selectedAssets = [NSMutableArray array];
     }
-    if (self.maxOption < [self.selectedAssets count] || self.maxOption == 0) {
+    int count = (int)[self.selectedAssets count];
+    if ( count < self.maxOption || !self.maxOption) {
         [self.selectedAssets addObject:[[[asset defaultRepresentation] url] absoluteString]];
         return YES;
     }

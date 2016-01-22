@@ -21,7 +21,7 @@
 - (void)setGroupsWithAll:(void(^)(NSDictionary *,NSError *))resultBlock;
 - (void)setAssetWithUrl:(NSString *)url result:(void(^)(ALAsset *,NSError *))result;
 
-- (void)dissmissViewController:(void(^)(NSArray *))resultBlock;
+- (void)getResultBlock:(void(^)(NSArray *))resultBlock;
 
 - (BOOL)addAssets:(ALAsset *)asset;
 - (void)removeAssets:(ALAsset *)asset;
