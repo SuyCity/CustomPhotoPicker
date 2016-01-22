@@ -13,15 +13,15 @@
 		511BE1C81C4E227E00FC765A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511BE1C61C4E227E00FC765A /* Main.storyboard */; };
 		511BE1CA1C4E227E00FC765A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 511BE1C91C4E227E00FC765A /* Assets.xcassets */; };
 		511BE1CD1C4E227E00FC765A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511BE1CB1C4E227E00FC765A /* LaunchScreen.storyboard */; };
-		511BE1D71C4E245A00FC765A /* YCPhotoPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 511BE1D61C4E245A00FC765A /* YCPhotoPickerManager.m */; };
-		511E5CD31C4E959A001FD1C7 /* YCPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511E5CD21C4E959A001FD1C7 /* YCPhotoPickerController.m */; };
-		511E5CD81C4E9694001FD1C7 /* BRNImagePickerSheet-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 511E5CD51C4E9694001FD1C7 /* BRNImagePickerSheet-checkmark@2x.png */; };
-		511E5CD91C4E9694001FD1C7 /* BRNImagePickerSheet-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 511E5CD61C4E9694001FD1C7 /* BRNImagePickerSheet-selected@2x.png */; };
-		511E5CDD1C4E9C66001FD1C7 /* YCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 511E5CDC1C4E9C66001FD1C7 /* YCImageView.m */; };
+		511DD7471C51FAAC0024962A /* AV_Video_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 511DD7391C51FAAC0024962A /* AV_Video_Highlight@2x.png */; };
+		511DD7481C51FAAC0024962A /* BRNImagePickerSheet-checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 511DD73A1C51FAAC0024962A /* BRNImagePickerSheet-checkmark@2x.png */; };
+		511DD7491C51FAAC0024962A /* BRNImagePickerSheet-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 511DD73B1C51FAAC0024962A /* BRNImagePickerSheet-selected@2x.png */; };
+		511DD74A1C51FAAC0024962A /* YCAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511DD73D1C51FAAC0024962A /* YCAlbumController.m */; };
+		511DD74B1C51FAAC0024962A /* YCAlbumInfosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511DD73F1C51FAAC0024962A /* YCAlbumInfosController.m */; };
+		511DD74C1C51FAAC0024962A /* YCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 511DD7411C51FAAC0024962A /* YCImageView.m */; };
+		511DD74D1C51FAAC0024962A /* YCPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511DD7441C51FAAC0024962A /* YCPhotoPickerController.m */; };
+		511DD74E1C51FAAC0024962A /* YCPhotoPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 511DD7461C51FAAC0024962A /* YCPhotoPickerManager.m */; };
 		511E5CEC1C4F2E71001FD1C7 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 511E5CEB1C4F2E71001FD1C7 /* Reveal.framework */; };
-		511E5CEF1C4F7F22001FD1C7 /* YCAlbumController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511E5CEE1C4F7F22001FD1C7 /* YCAlbumController.m */; };
-		511E5CF21C4F8B56001FD1C7 /* YCAlbumInfosController.m in Sources */ = {isa = PBXBuildFile; fileRef = 511E5CF11C4F8B56001FD1C7 /* YCAlbumInfosController.m */; };
-		513FFBD81C50B07800991A88 /* AV_Video_Highlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 513FFBD71C50B07800991A88 /* AV_Video_Highlight@2x.png */; };
 		6D1711CED9ADA64594EB9654 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D574F14AF5DF470C977A0E2 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,21 +36,21 @@
 		511BE1C91C4E227E00FC765A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		511BE1CC1C4E227E00FC765A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		511BE1CE1C4E227E00FC765A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		511BE1D51C4E245A00FC765A /* YCPhotoPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPhotoPickerManager.h; sourceTree = "<group>"; };
-		511BE1D61C4E245A00FC765A /* YCPhotoPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCPhotoPickerManager.m; sourceTree = "<group>"; };
-		511E5CD11C4E959A001FD1C7 /* YCPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPhotoPickerController.h; sourceTree = "<group>"; };
-		511E5CD21C4E959A001FD1C7 /* YCPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCPhotoPickerController.m; sourceTree = "<group>"; };
-		511E5CD51C4E9694001FD1C7 /* BRNImagePickerSheet-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BRNImagePickerSheet-checkmark@2x.png"; sourceTree = "<group>"; };
-		511E5CD61C4E9694001FD1C7 /* BRNImagePickerSheet-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BRNImagePickerSheet-selected@2x.png"; sourceTree = "<group>"; };
-		511E5CDB1C4E9C66001FD1C7 /* YCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCImageView.h; sourceTree = "<group>"; };
-		511E5CDC1C4E9C66001FD1C7 /* YCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCImageView.m; sourceTree = "<group>"; };
-		511E5CDE1C4E9CBC001FD1C7 /* YCPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPhotoPicker.h; sourceTree = "<group>"; };
+		511DD7391C51FAAC0024962A /* AV_Video_Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AV_Video_Highlight@2x.png"; sourceTree = "<group>"; };
+		511DD73A1C51FAAC0024962A /* BRNImagePickerSheet-checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BRNImagePickerSheet-checkmark@2x.png"; sourceTree = "<group>"; };
+		511DD73B1C51FAAC0024962A /* BRNImagePickerSheet-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BRNImagePickerSheet-selected@2x.png"; sourceTree = "<group>"; };
+		511DD73C1C51FAAC0024962A /* YCAlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCAlbumController.h; sourceTree = "<group>"; };
+		511DD73D1C51FAAC0024962A /* YCAlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCAlbumController.m; sourceTree = "<group>"; };
+		511DD73E1C51FAAC0024962A /* YCAlbumInfosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCAlbumInfosController.h; sourceTree = "<group>"; };
+		511DD73F1C51FAAC0024962A /* YCAlbumInfosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCAlbumInfosController.m; sourceTree = "<group>"; };
+		511DD7401C51FAAC0024962A /* YCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCImageView.h; sourceTree = "<group>"; };
+		511DD7411C51FAAC0024962A /* YCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCImageView.m; sourceTree = "<group>"; };
+		511DD7421C51FAAC0024962A /* YCPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPhotoPicker.h; sourceTree = "<group>"; };
+		511DD7431C51FAAC0024962A /* YCPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPhotoPickerController.h; sourceTree = "<group>"; };
+		511DD7441C51FAAC0024962A /* YCPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCPhotoPickerController.m; sourceTree = "<group>"; };
+		511DD7451C51FAAC0024962A /* YCPhotoPickerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCPhotoPickerManager.h; sourceTree = "<group>"; };
+		511DD7461C51FAAC0024962A /* YCPhotoPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCPhotoPickerManager.m; sourceTree = "<group>"; };
 		511E5CEB1C4F2E71001FD1C7 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
-		511E5CED1C4F7F22001FD1C7 /* YCAlbumController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCAlbumController.h; sourceTree = "<group>"; };
-		511E5CEE1C4F7F22001FD1C7 /* YCAlbumController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCAlbumController.m; sourceTree = "<group>"; };
-		511E5CF01C4F8B56001FD1C7 /* YCAlbumInfosController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCAlbumInfosController.h; sourceTree = "<group>"; };
-		511E5CF11C4F8B56001FD1C7 /* YCAlbumInfosController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCAlbumInfosController.m; sourceTree = "<group>"; };
-		513FFBD71C50B07800991A88 /* AV_Video_Highlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AV_Video_Highlight@2x.png"; sourceTree = "<group>"; };
 		9D574F14AF5DF470C977A0E2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF3D0C079F1A7F9ADE170516 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DFFFD1933F9272ED7C50DAE3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +89,7 @@
 		511BE1B11C4E227E00FC765A = {
 			isa = PBXGroup;
 			children = (
+				511DD7371C51FAAC0024962A /* YCPhotoPicker */,
 				511E5CEB1C4F2E71001FD1C7 /* Reveal.framework */,
 				511BE1BC1C4E227E00FC765A /* CustomPhotoPicker */,
 				511BE1BB1C4E227E00FC765A /* Products */,
@@ -108,7 +109,6 @@
 		511BE1BC1C4E227E00FC765A /* CustomPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				511BE1D41C4E22B400FC765A /* YCPhotoPicker */,
 				511BE1C01C4E227E00FC765A /* AppDelegate.h */,
 				511BE1C11C4E227E00FC765A /* AppDelegate.m */,
 				511BE1C31C4E227E00FC765A /* ViewController.h */,
@@ -130,31 +130,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		511BE1D41C4E22B400FC765A /* YCPhotoPicker */ = {
+		511DD7371C51FAAC0024962A /* YCPhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				511E5CD41C4E9694001FD1C7 /* Resource */,
-				511BE1D51C4E245A00FC765A /* YCPhotoPickerManager.h */,
-				511BE1D61C4E245A00FC765A /* YCPhotoPickerManager.m */,
-				511E5CD11C4E959A001FD1C7 /* YCPhotoPickerController.h */,
-				511E5CD21C4E959A001FD1C7 /* YCPhotoPickerController.m */,
-				511E5CED1C4F7F22001FD1C7 /* YCAlbumController.h */,
-				511E5CEE1C4F7F22001FD1C7 /* YCAlbumController.m */,
-				511E5CF01C4F8B56001FD1C7 /* YCAlbumInfosController.h */,
-				511E5CF11C4F8B56001FD1C7 /* YCAlbumInfosController.m */,
-				511E5CDB1C4E9C66001FD1C7 /* YCImageView.h */,
-				511E5CDC1C4E9C66001FD1C7 /* YCImageView.m */,
-				511E5CDE1C4E9CBC001FD1C7 /* YCPhotoPicker.h */,
+				511DD7381C51FAAC0024962A /* Resource */,
+				511DD73C1C51FAAC0024962A /* YCAlbumController.h */,
+				511DD73D1C51FAAC0024962A /* YCAlbumController.m */,
+				511DD73E1C51FAAC0024962A /* YCAlbumInfosController.h */,
+				511DD73F1C51FAAC0024962A /* YCAlbumInfosController.m */,
+				511DD7401C51FAAC0024962A /* YCImageView.h */,
+				511DD7411C51FAAC0024962A /* YCImageView.m */,
+				511DD7421C51FAAC0024962A /* YCPhotoPicker.h */,
+				511DD7431C51FAAC0024962A /* YCPhotoPickerController.h */,
+				511DD7441C51FAAC0024962A /* YCPhotoPickerController.m */,
+				511DD7451C51FAAC0024962A /* YCPhotoPickerManager.h */,
+				511DD7461C51FAAC0024962A /* YCPhotoPickerManager.m */,
 			);
 			path = YCPhotoPicker;
 			sourceTree = "<group>";
 		};
-		511E5CD41C4E9694001FD1C7 /* Resource */ = {
+		511DD7381C51FAAC0024962A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				513FFBD71C50B07800991A88 /* AV_Video_Highlight@2x.png */,
-				511E5CD51C4E9694001FD1C7 /* BRNImagePickerSheet-checkmark@2x.png */,
-				511E5CD61C4E9694001FD1C7 /* BRNImagePickerSheet-selected@2x.png */,
+				511DD7391C51FAAC0024962A /* AV_Video_Highlight@2x.png */,
+				511DD73A1C51FAAC0024962A /* BRNImagePickerSheet-checkmark@2x.png */,
+				511DD73B1C51FAAC0024962A /* BRNImagePickerSheet-selected@2x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -220,12 +220,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				511DD7491C51FAAC0024962A /* BRNImagePickerSheet-selected@2x.png in Resources */,
 				511BE1CD1C4E227E00FC765A /* LaunchScreen.storyboard in Resources */,
 				511BE1CA1C4E227E00FC765A /* Assets.xcassets in Resources */,
+				511DD7481C51FAAC0024962A /* BRNImagePickerSheet-checkmark@2x.png in Resources */,
+				511DD7471C51FAAC0024962A /* AV_Video_Highlight@2x.png in Resources */,
 				511BE1C81C4E227E00FC765A /* Main.storyboard in Resources */,
-				511E5CD91C4E9694001FD1C7 /* BRNImagePickerSheet-selected@2x.png in Resources */,
-				513FFBD81C50B07800991A88 /* AV_Video_Highlight@2x.png in Resources */,
-				511E5CD81C4E9694001FD1C7 /* BRNImagePickerSheet-checkmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,14 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				511BE1D71C4E245A00FC765A /* YCPhotoPickerManager.m in Sources */,
+				511DD74E1C51FAAC0024962A /* YCPhotoPickerManager.m in Sources */,
 				511BE1C51C4E227E00FC765A /* ViewController.m in Sources */,
-				511E5CDD1C4E9C66001FD1C7 /* YCImageView.m in Sources */,
-				511E5CF21C4F8B56001FD1C7 /* YCAlbumInfosController.m in Sources */,
-				511E5CD31C4E959A001FD1C7 /* YCPhotoPickerController.m in Sources */,
 				511BE1C21C4E227E00FC765A /* AppDelegate.m in Sources */,
+				511DD74D1C51FAAC0024962A /* YCPhotoPickerController.m in Sources */,
+				511DD74C1C51FAAC0024962A /* YCImageView.m in Sources */,
+				511DD74B1C51FAAC0024962A /* YCAlbumInfosController.m in Sources */,
 				511BE1BF1C4E227E00FC765A /* main.m in Sources */,
-				511E5CEF1C4F7F22001FD1C7 /* YCAlbumController.m in Sources */,
+				511DD74A1C51FAAC0024962A /* YCAlbumController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
