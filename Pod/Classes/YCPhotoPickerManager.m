@@ -126,7 +126,7 @@ NSString *const YCAssetPropertyUIT = @"__YCAssetPropertyUIT";
         return YES;
     }
     else{
-        NSLog(@"%@",[NSString stringWithFormat:@"You can select %d photos",(int)self.maxOption]);
+        [[NSNotificationCenter defaultCenter] postNotificationName:YC_PHOTO_PICKER_MaxOption_Error object:nil];
     }
     return NO;
 }

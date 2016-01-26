@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 
 #define YC_PHOTO_PICKER_UPDATE @"__YC_PHOTO_PICKER_UPDATE"
+#define YC_PHOTO_PICKER_MaxOption_Error @"__YC_PHOTO_PICKER_MaxOption_Error"
 
 extern NSString *const YCAssetPropertyURL;
 extern NSString *const YCAssetPropertyType;
