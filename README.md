@@ -17,7 +17,7 @@ YCPhotoPicker is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "YCPhotoPicker"
+pod 'YCPhotoPicker',:git => 'https://github.com/SuyCity/CustomPhotoPicker.git'
 ```
 
 ## Author
