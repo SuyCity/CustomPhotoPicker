@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSMutableArray *photos;
 @property (nonatomic, strong) NSMutableArray *thumbnails;
 @property (nonatomic, assign) BOOL isReloadData;
+@property (nonatomic, strong) UIBarButtonItem *rightBar;
 @end
 
 @implementation YCAlbumInfosController
@@ -44,9 +45,10 @@
     [self.collectionView registerClass:[UICollectionViewCell class]
             forCellWithReuseIdentifier:@"UICollectionViewCell"];
     
-    UIBarButtonItem *rightBtn=[[UIBarButtonItem alloc]initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnEvent:)];
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnEvent)];
     self.navigationItem.rightBarButtonItem=rightBtn;
-    
+    self.rightBar = rightBtn;
+    [self changeText:nil];
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -63,12 +65,24 @@
                                     scrollPosition:UICollectionViewScrollPositionBottom];
     }];
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeText:) name:YC_PHOTO_PICKER_UPDATE object:nil];
+}
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.isReloadData = NO;
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:YC_PHOTO_PICKER_UPDATE object:nil];
 }
 #pragma mark - Event
-- (void)rightBtnEvent:(id)sender{
+- (void)changeText:(id)sender{
+    if ([[[YCPhotoPickerManager sharedManager] getSelectedAsstes] count]) {
+        self.rightBar.title = @"发送";
+    }else{
+        self.rightBar.title = @"取消";
+    }
+}
+- (void)rightBtnEvent{
     [(YCPhotoPickerController *)[[YCPhotoPickerManager sharedManager] parentViewController] dismissViewController];
 }
 #pragma mark - UICollectionViewDelegate

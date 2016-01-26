@@ -8,6 +8,7 @@
 
 #import "YCPhotoPickerManager.h"
 
+
 @interface YCPhotoPickerManager ()
 @property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
 @property (nonatomic, strong) NSMutableArray *selectedAssets;
@@ -75,7 +76,8 @@
 #pragma mark - Sender Photo
 - (void)getResultBlock:(void(^)(NSArray *))resultBlock{
     __block NSMutableArray *imageArray  = [NSMutableArray array];
-    [[self getSelectedAsstes] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    NSArray *selectedAsstes = [self getSelectedAsstes];
+    [selectedAsstes enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj) {
             [self.assetsLibrary assetForURL:[NSURL URLWithString:obj] resultBlock:^(ALAsset *result) {
                 NSMutableDictionary *dict=[NSMutableDictionary dictionary];
@@ -93,29 +95,46 @@
                 [dict setValue:url forKey:@"url"];
                 [dict setValue:uit forKey:@"uit"];
                 [imageArray addObject:dict];
-            } failureBlock:^(NSError *error) {
                 
+                if ([selectedAsstes count] - 1 == idx) {
+                    if(resultBlock) resultBlock(imageArray);
+                }
+                
+            } failureBlock:^(NSError *error) {
+                if ([selectedAsstes count] - 1 == idx) {
+                    if(resultBlock) resultBlock(imageArray);
+                }
             }];
-        }
-        else{
-            if(resultBlock) resultBlock(imageArray);
         }
     }];
 }
 #pragma mark - Assets
-- (BOOL)addAssets:(ALAsset *)asset{
+- (BOOL)addAssetsURL:(NSString *)url{
     if (!self.selectedAssets) {
         self.selectedAssets = [NSMutableArray array];
     }
     int count = (int)[self.selectedAssets count];
     if ( count < self.maxOption || !self.maxOption) {
-        [self.selectedAssets addObject:[[[asset defaultRepresentation] url] absoluteString]];
+        [self.selectedAssets addObject:url];
+        [[NSNotificationCenter defaultCenter] postNotificationName:YC_PHOTO_PICKER_UPDATE object:nil];
         return YES;
+    }
+    else{
+        HHAlertViewShow([NSString stringWithFormat:@"您只能选择%d张图片",self.maxOption], HHAlertViewModeError);
     }
     return NO;
 }
+- (BOOL)addAssets:(ALAsset *)asset{
+    return [self addAssetsURL:[[[asset defaultRepresentation] url] absoluteString]];
+}
 - (void)removeAssets:(ALAsset *)asset{
-    [self.selectedAssets removeObject:[[[asset defaultRepresentation] url] absoluteString]];
+    if ([self isEqualAssets:asset]) {
+        [self.selectedAssets removeObject:[[[asset defaultRepresentation] url] absoluteString]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:YC_PHOTO_PICKER_UPDATE object:nil];
+    }
+}
+- (void)removeAssetsAll{
+    [self.selectedAssets removeAllObjects];
 }
 - (NSArray *)getSelectedAsstes{
     return self.selectedAssets;

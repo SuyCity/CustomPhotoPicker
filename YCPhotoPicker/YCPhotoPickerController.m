@@ -27,9 +27,22 @@
 
 #pragma mark - +
 + (void)openPhotoPickerRootViewController:(UIViewController *)rootController maxOption:(NSUInteger)maxOption result:(void(^)(NSArray *result))resultBlock{
+    [self openPhotoPickerRootViewController:rootController maxOption:maxOption selectedOption:nil result:resultBlock];
+}
++ (void)openPhotoPickerRootViewController:(UIViewController *)rootController maxOption:(NSUInteger)maxOption selectedOption:(NSArray<NSDictionary *> *)selectedOption result:(void(^)(NSArray *result))resultBlock{
     YCPhotoPickerController *photoPicker = [[YCPhotoPickerController alloc] init];
     photoPicker.maxOption = maxOption;
     photoPicker.didSelectedPhotosBlock = resultBlock;
+    [selectedOption enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [[YCPhotoPickerManager sharedManager] addAssetsURL:[obj objectForKey:@"url" asClass:[NSString class]]];
+    }];
+    [[YCPhotoPickerManager sharedManager] setParentViewController:photoPicker];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
+        photoPicker.modalPresentationStyle = UIModalPresentationCustom;
+    }else{
+        photoPicker.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        photoPicker.modalPresentationStyle = UIModalPresentationFormSheet;
+    }
     [rootController presentViewController:photoPicker animated:YES completion:nil];
 }
 #pragma mark - Set/Get
@@ -43,10 +56,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [YCPhotoPickerManager sharedManager];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self.view setBackgroundColor:[UIColor clearColor]];
     
     UIView *orangeColorView = [[UIView alloc] init];
-    [orangeColorView setBackgroundColor:[UIColor clearColor]];
+    [orangeColorView setBackgroundColor:[[UIColor grayColor] colorWithAlphaComponent:.5]];
     [orangeColorView setTranslatesAutoresizingMaskIntoConstraints:NO];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
     [tap addTarget:self action:@selector(dismissViewController)];
@@ -61,6 +74,7 @@
     
     
     UITableView *tableView = [[UITableView alloc] init];
+    [tableView setBackgroundColor:[self.view backgroundColor]];
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.separatorColor = [UIColor colorWithRed:218/255.0 green:218/255.0 blue:218/255.0 alpha:1];//[YCPhotoPickerController opaqueColorWithRGBBytes:0xe5e5e5];
@@ -115,6 +129,15 @@
         }];
     });
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeText:) name:YC_PHOTO_PICKER_UPDATE object:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:YC_PHOTO_PICKER_UPDATE object:nil];
 }
 #pragma mark - 
 - (void)addImagesToScrollView{
@@ -198,10 +221,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
         if ([[[YCPhotoPickerManager sharedManager] getSelectedAsstes] count]){
-            
+            [self dismissViewController];
         }
         else{
-
+            [self tackPhoto];
         }
     }else if (indexPath.row == 1){
         YCAlbumController *album = [[YCAlbumController alloc] init];
@@ -236,27 +259,31 @@
     __weak typeof(self) weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{
         if(weakSelf.didSelectedPhotosBlock)weakSelf.didSelectedPhotosBlock(@[param]);
-        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        [weakSelf dismiss];
     }];
     
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker;
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismiss];
 }
 #pragma mark - Event
 - (void)dismissViewController{
     [[YCPhotoPickerManager sharedManager] getResultBlock:^(NSArray *infos) {
         if(self.didSelectedPhotosBlock)self.didSelectedPhotosBlock(infos);
     }];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismiss];
 }
-+ (UIColor*)opaqueColorWithRGBBytes:(NSUInteger)hexConstant
-{
-    CGFloat red = ((hexConstant >> 16) & 0xFF) / 255.0;
-    CGFloat green = ((hexConstant >> 8) & 0xFF) / 255.0;
-    CGFloat blue = (hexConstant & 0xFF) / 255.0;
-    return [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+- (void)dismiss{
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[YCPhotoPickerManager sharedManager] removeAssetsAll];
+    }];
+}
+- (void)changeText:(id)sender{
+    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
+                          withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView endUpdates];
 }
 /**
  *  解决拍照后图片旋屏的问题 2015/12/15 Suycity

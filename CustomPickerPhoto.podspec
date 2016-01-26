@@ -2,22 +2,22 @@ Pod::Spec.new do |s|
 
   s.name = 'CustomPickerPhoto'
   s.version = '1.0.0'
-  s.license = 'MIT'
+  s.license = { :type => 'BSD' }
   s.summary = 'Photos'
   s.description = <<-DESCRIPTION
                         Custom Picker Photos
                   DESCRIPTION
 
   s.homepage = 'https://github.com/SuyCity/CustomPhotoPicker'
-  s.author = { 'Michael Waterfall' => 'suycity@gmail.com' }
-  s.social_media_url = 'https://twitter.com/suycity1'
+  s.author = { 'Suycity' => 'suycity@gmail.com' }
+#s.social_media_url = 'https://twitter.com/suycity1'
 
   s.source = {
     :git => 'https://github.com/SuyCity/CustomPhotoPicker.git',
     :tag => '1.0.0'
   }
   s.platform = :ios, '7.0'
-  s.source_files = 'YCPhotoPicker/**/*'
+  s.source_files = 'YCPhotoPicker/*.{h,m,c}'
   s.resource_bundles = {
     'CustomPickerPhoto' => ['YCPhotoPicker/Resources/*.png']
   }

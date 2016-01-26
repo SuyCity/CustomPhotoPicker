@@ -10,6 +10,8 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <UIKit/UIKit.h>
 
+#define YC_PHOTO_PICKER_UPDATE @"__YC_PHOTO_PICKER_UPDATE"
+
 @interface YCPhotoPickerManager : NSObject
 
 @property (nonatomic, assign) NSUInteger maxOption;
@@ -23,8 +25,10 @@
 
 - (void)getResultBlock:(void(^)(NSArray *))resultBlock;
 
+- (BOOL)addAssetsURL:(NSString *)url;
 - (BOOL)addAssets:(ALAsset *)asset;
 - (void)removeAssets:(ALAsset *)asset;
+- (void)removeAssetsAll;
 - (NSArray *)getSelectedAsstes;
 - (BOOL)isEqualAssets:(ALAsset *)asset;
 @end
