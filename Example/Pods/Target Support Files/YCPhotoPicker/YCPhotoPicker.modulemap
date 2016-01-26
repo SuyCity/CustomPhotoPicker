@@ -1,0 +1,6 @@
+framework module YCPhotoPicker {
+  umbrella header "YCPhotoPicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
