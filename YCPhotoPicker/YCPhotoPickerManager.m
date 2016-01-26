@@ -8,6 +8,12 @@
 
 #import "YCPhotoPickerManager.h"
 
+NSString *const YCAssetPropertyURL = @"__YCAssetPropertyURL";
+NSString *const YCAssetPropertyType = @"__YCAssetPropertyType";
+NSString *const YCAssetPropertyDuration = @"__YCAssetPropertyDuration";
+NSString *const YCAssetPropertyLocation = @"__YCAssetPropertyLocation";
+NSString *const YCAssetPropertyImage = @"__YCAssetPropertyImage";
+NSString *const YCAssetPropertyUIT = @"__YCAssetPropertyUIT";
 
 @interface YCPhotoPickerManager ()
 @property (nonatomic, strong) ALAssetsLibrary *assetsLibrary;
@@ -88,12 +94,12 @@
                 NSString* uit = [representation filename];
                 NSString *url = [[[result defaultRepresentation]url]description];
                 UIImage *image=[UIImage imageWithCGImage:result.aspectRatioThumbnail];
-                [dict setValue:image forKey:@"image"];
-                [dict setValue:location forKey:@"location"];
-                [dict setValue:duration forKey:@"duration"];
-                [dict setValue:type forKey:@"type"];
-                [dict setValue:url forKey:@"url"];
-                [dict setValue:uit forKey:@"uit"];
+                [dict setValue:image forKey:YCAssetPropertyImage];
+                [dict setValue:location forKey:YCAssetPropertyLocation];
+                [dict setValue:duration forKey:YCAssetPropertyDuration];
+                [dict setValue:type forKey:YCAssetPropertyType];
+                [dict setValue:url forKey:YCAssetPropertyURL];
+                [dict setValue:uit forKey:YCAssetPropertyUIT];
                 [imageArray addObject:dict];
                 
                 if ([selectedAsstes count] - 1 == idx) {
@@ -120,7 +126,7 @@
         return YES;
     }
     else{
-        HHAlertViewShow([NSString stringWithFormat:@"您只能选择%d张图片",self.maxOption], HHAlertViewModeError);
+        NSLog(@"%@",[NSString stringWithFormat:@"You can select %d photos",self.maxOption]);
     }
     return NO;
 }

@@ -34,7 +34,7 @@
     photoPicker.maxOption = maxOption;
     photoPicker.didSelectedPhotosBlock = resultBlock;
     [selectedOption enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [[YCPhotoPickerManager sharedManager] addAssetsURL:[obj objectForKey:@"url" asClass:[NSString class]]];
+        [[YCPhotoPickerManager sharedManager] addAssetsURL:obj[YCAssetPropertyURL]];
     }];
     [[YCPhotoPickerManager sharedManager] setParentViewController:photoPicker];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0) {
@@ -254,7 +254,7 @@
 #pragma mark UIImagePickerController
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    NSDictionary *param = @{@"image" : [self fixOrientation:image]};
+    NSDictionary *param = @{YCAssetPropertyImage : [self fixOrientation:image]};
     
     __weak typeof(self) weakSelf = self;
     [picker dismissViewControllerAnimated:YES completion:^{

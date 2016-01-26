@@ -12,6 +12,13 @@
 
 #define YC_PHOTO_PICKER_UPDATE @"__YC_PHOTO_PICKER_UPDATE"
 
+extern NSString *const YCAssetPropertyURL;
+extern NSString *const YCAssetPropertyType;
+extern NSString *const YCAssetPropertyDuration;
+extern NSString *const YCAssetPropertyLocation;
+extern NSString *const YCAssetPropertyImage;
+extern NSString *const YCAssetPropertyUIT;
+
 @interface YCPhotoPickerManager : NSObject
 
 @property (nonatomic, assign) NSUInteger maxOption;
@@ -21,8 +28,16 @@
 + (instancetype)sharedManager;
 
 - (void)setGroupsWithAll:(void(^)(NSDictionary *,NSError *))resultBlock;
+/**
+ *  根据在相册的URL获取到Image信息
+ *
+ *  @param url    资源URL
+ *  @param result Block
+ */
 - (void)setAssetWithUrl:(NSString *)url result:(void(^)(ALAsset *,NSError *))result;
-
+/**
+ *  获取到已选的相册信息
+ */
 - (void)getResultBlock:(void(^)(NSArray *))resultBlock;
 
 - (BOOL)addAssetsURL:(NSString *)url;
