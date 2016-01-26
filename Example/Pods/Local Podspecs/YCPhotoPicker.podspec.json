@@ -1,6 +1,6 @@
 {
   "name": "YCPhotoPicker",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "summary": "This is a copy of the album QQ photos picker",
   "description": "This is a copy of the album QQ photos picker.\n1 support multi radio.\n2 using AutoLayout layout, support for all iPhone, iPad.\n3 optimize the memory, 1000 photos will not be card.\n4 a code to get.",
   "homepage": "https://github.com/Suycity/CustomPhotoPicker",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/Suycity/CustomPhotoPicker.git",
-    "tag": "1.5.0"
+    "tag": "1.6.0"
   },
   "platforms": {
     "ios": "7.0"
