@@ -71,9 +71,12 @@
     }else if([[asset valueForProperty:ALAssetPropertyType]isEqualToString:ALAssetTypePhoto]){
         if (!self.checkMarkBtn && self.asset) {
             self.checkMarkBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [self.checkMarkBtn setImage:[UIImage imageNamed:@"BRNImagePickerSheet-checkmark"]
+            
+            NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+            
+            [self.checkMarkBtn setImage:[UIImage imageWithContentsOfFile:[bundle pathForResource:@"YCPhotoPicker.bundle/BRNImagePickerSheet-checkmark@2x" ofType:@"png"]]
                                forState:UIControlStateNormal];
-            [self.checkMarkBtn setImage:[UIImage imageNamed:@"BRNImagePickerSheet-selected"]
+            [self.checkMarkBtn setImage:[UIImage imageWithContentsOfFile:[bundle pathForResource:@"YCPhotoPicker.bundle/BRNImagePickerSheet-selected@2x" ofType:@"png"]]
                                forState:UIControlStateSelected];
             [self.checkMarkBtn setTranslatesAutoresizingMaskIntoConstraints:NO];
             [self.checkMarkBtn addTarget:self action:@selector(checkMarkEvent:)
@@ -104,7 +107,8 @@
         [self.videoView setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self addSubview:self.videoView];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"AV_Video_Highlight"]];
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:[bundle pathForResource:@"YCPhotoPicker.bundle/AV_Video_Highlight@2x" ofType:@"png"]]];
         [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
         [self.videoView addSubview:imageView];
         
