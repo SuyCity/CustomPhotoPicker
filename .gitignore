@@ -14,11 +14,12 @@ profile
 *.moved-aside
 DerivedData
 .idea/
-CustomPhotoPicker.podspec
 *.hmap
 *.xccheckout
-Pods/Assets/*
-Pods/Classes/*
+
+#CustomPhotoPicker.podspec
+#Pods/Assets/*
+#Pods/Classes/*
 
 # CocoaPods
 #
