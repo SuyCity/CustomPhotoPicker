@@ -126,7 +126,7 @@ NSString *const YCAssetPropertyUIT = @"__YCAssetPropertyUIT";
         return YES;
     }
     else{
-        NSLog(@"%@",[NSString stringWithFormat:@"You can select %d photos",self.maxOption]);
+        NSLog(@"%@",[NSString stringWithFormat:@"You can select %d photos",(int)self.maxOption]);
     }
     return NO;
 }

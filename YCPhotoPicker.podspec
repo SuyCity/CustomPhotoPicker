@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = "YCPhotoPicker"
   s.version          = "1.5.0"
-  s.summary          = "A short description of YCPhotoPicker."
+  s.summary          = "This is a copy of the album QQ photos picker"
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,6 +17,11 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!  
   s.description      = <<-DESC
+This is a copy of the album QQ photos picker.
+1 support multi radio.
+2 using AutoLayout layout, support for all iPhone, iPad.
+3 optimize the memory, 1000 photos will not be card.
+4 a code to get.
                        DESC
 
   s.homepage         = "https://github.com/Suycity/CustomPhotoPicker"

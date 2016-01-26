@@ -7,7 +7,7 @@
 //
 
 #import "YCViewController.h"
-
+#import <YCPhotoPicker/YCPhotoPicker.h>
 @interface YCViewController ()
 
 @end
@@ -19,7 +19,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
-
+- (IBAction)selectPhotoPickerEvent:(id)sender{
+    [YCPhotoPickerController openPhotoPickerRootViewController:self maxOption:3 result:nil];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
