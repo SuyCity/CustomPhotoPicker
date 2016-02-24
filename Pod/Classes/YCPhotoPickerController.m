@@ -243,7 +243,7 @@
 }
 #pragma mark - 
 - (void)tackPhoto{
-    if (self.imagePickerController) {
+    if (!self.imagePickerController) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -275,7 +275,7 @@
     [self dismiss];
 }
 - (void)dismiss{
-    [self dismissViewControllerAnimated:YES completion:^{
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
         [[YCPhotoPickerManager sharedManager] removeAssetsAll];
     }];
 }
