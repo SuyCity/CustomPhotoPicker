@@ -7,7 +7,7 @@
 //
 
 #import "YCAlbumController.h"
-#import "YCPhotoPickerManager.h"
+#import "YCPhotoPicker.h"
 #import "YCAlbumInfosController.h"
 
 @interface YCAlbumController ()<UITableViewDataSource,UITableViewDelegate>
@@ -50,7 +50,7 @@
 }
 #pragma mark - Event
 - (void)rightBtnEvent:(id)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [(YCPhotoPickerController *)[[YCPhotoPickerManager sharedManager] parentViewController] dismissViewController];
 }
 #pragma mark - UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
